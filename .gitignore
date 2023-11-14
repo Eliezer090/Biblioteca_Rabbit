@@ -1,0 +1,9 @@
+__pycache__/
+pytestdebug.log
+.venv/
+.pytest_cache/
+htmlcov/
+.vscode/
+service_Rabbit_thread.egg-info
+.coverage
+dist
