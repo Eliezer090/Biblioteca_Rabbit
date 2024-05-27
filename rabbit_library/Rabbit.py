@@ -86,8 +86,9 @@ class Rabbit():
                 self.reconnect = False
                 break
             except Exception as e:
+                error_message = str(e).encode('ascii', 'ignore').decode('ascii')
                 logging.error(
-                    "Error receiving message from rabbit: {} ".format(e).encode('ascii', 'ignore'), stack_info=True)
+                    "Error receiving message from rabbit: {} ".format(error_message), stack_info=True)
                 self.reconnect = False
                 break
             finally:

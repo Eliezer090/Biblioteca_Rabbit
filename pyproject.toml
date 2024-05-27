@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rabbit-library"
-version = "1.0.4"
+version = "1.0.5"
 description = "Biblioteca para se conectar ao rabbit e possibilitar trabalhar com o serviço de mensageria"
 license = "MIT"
 authors = ["Eliézer Schwartz <eliezer.mail090@gmail.com>"]
