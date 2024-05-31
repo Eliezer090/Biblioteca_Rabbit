@@ -132,8 +132,10 @@ class Rabbit():
             return self.__send_message(queue, exchange, message)
 
         except Exception as e:
+            error_message = str(e).encode('ascii', 'ignore').decode('ascii')
             logging.error(
-                f"Error the send message to rabbit: {str(e)} ", stack_info=True)
+                "Error the send message to rabbit: {} ".format(error_message), stack_info=True)
+            return False
 
     def __is_connected(self) -> bool:
         """
@@ -172,8 +174,9 @@ class Rabbit():
 
             return True
         except Exception as e:
+            error_message = str(e).encode('ascii', 'ignore').decode('ascii')
             logging.error(
-                f"Error the send message to rabbbit: {str(e)} ", stack_info=True)
+                "Error the send message to rabbbit: {} ".format(error_message), stack_info=True)
             return False
 
     def __receive_message(self, queue: str, exchange: str, message_handler: typing.Callable, limit_get_messages: int) -> None:
@@ -206,5 +209,6 @@ class Rabbit():
             if self.channel and not self.channel.is_closed:
                 self.channel.close()
         except Exception as e:
+            error_message = str(e).encode('ascii', 'ignore').decode('ascii')
             logging.error(
-                f"Error closing connection: {str(e)} ", stack_info=True)
+                "Error closing connection: {} ".format(error_message), stack_info=True)
