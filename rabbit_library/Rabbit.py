@@ -150,7 +150,7 @@ class Rabbit():
         credentials = pika.PlainCredentials(self.username, self.password)
         # Create a connection parameters object with the provided host, port, and credentials
         parameters = pika.ConnectionParameters(
-            self.host, self.port, self.virtualhost, credentials)
+            self.host, self.port, self.virtualhost, credentials, heartbeat=600)
         # Create a SelectConnection with the provided parameters and a callback method to handle the established connection
         self.SelectConn = pika.BlockingConnection(parameters)
         # Start the connection's I/O loop in a separate thread

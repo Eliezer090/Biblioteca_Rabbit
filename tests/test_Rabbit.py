@@ -240,7 +240,7 @@ class TestRabbit(TestCase):
         # Verifique se as funções e classes do pika foram chamadas com os argumentos corretos
         mock_PlainCredentials.assert_called_once_with(my_instance.username, my_instance.password)
         mock_ConnectionParameters.assert_called_once_with(
-            my_instance.host, my_instance.port, my_instance.virtualhost, 'credentials')
+            my_instance.host, my_instance.port, my_instance.virtualhost, 'credentials', heartbeat=600)
         mock_BlockingConnection.assert_called_once_with('parameters')
 
         # Verifique se a conexão foi estabelecida corretamente
